@@ -16,7 +16,6 @@ nav .navbar-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 nav a {
@@ -41,6 +40,8 @@ nav .auth a:active {
   color: #1d1d1d;
   background-color: #f9d326;
 }
+
+/* login signup css */
 div.bg {
   border-color: #f9d326;
 }

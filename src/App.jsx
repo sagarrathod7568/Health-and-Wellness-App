@@ -7,6 +7,8 @@ import { About } from "./components/Sagar-components/About";
 import { Profile } from "./components/Sagar-components/Profile";
 import { Login } from "./components/Sagar-components/Login";
 import { Signup } from "./components/Sagar-components/Signup";
+import { ForgotPassword } from "./components/Sagar-components/ForgotPassword";
+import { ResetPassword } from "./components/Sagar-components/ResetPassword";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,6 +22,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/forgotPassword" element={<ResetPassword />} />
       </Routes>
     </>
   );
