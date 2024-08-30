@@ -1,0 +1,24 @@
+  .about-box{
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    
+  }
+
+  .about{
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+  }
+
+  .about>h1{
+    color: gold;
+    text-align: center;
+  }
+
+  .about>p{
+    text-align: center;
+    color: rgba(17, 15, 15, 0.797);
+  }
+
+  

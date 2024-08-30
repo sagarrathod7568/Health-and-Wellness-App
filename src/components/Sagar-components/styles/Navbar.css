@@ -11,6 +11,7 @@ nav {
   background-color: #1d1d1d;
   position: fixed;
   width: 100%;
+  margin-bottom: 10%;
 }
 nav .navbar-list {
   display: flex;
@@ -96,4 +97,20 @@ main .goal div {
 .goal img {
   width: 50px;
   object-fit: cover;
+}
+
+.authspace{
+  display: flex;
+  gap: 13px;
+}
+.authspace>button{
+  background-color: black;
+  color: wheat;
+  padding: 10px 15px;
+  border-radius: 12px;
+  border: 1px solid #f9d326;
+}
+
+.authspace>button:active{
+  background-color: #f9d326;
 }
