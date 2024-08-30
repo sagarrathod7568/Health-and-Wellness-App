@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+section .profile-intro {
+  background: #f6f6f8;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+section .guidlines {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  background: #1d1d1d;
+  color: aliceblue;
+  padding: 25px;
+  border-radius: 25px;
+  div {
+    width: 600px;
+    padding-bottom: 20px;
+    p {
+      text-align: center;
+      padding-inline: 55px;
+      color: grey;
+    }
+  }
+}
+
+section .habits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  background: #f6f6f8;
+  padding: 25px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  div {
+    width: 500px;
+    text-align: center;
+
+    img {
+      text-align: center;
+      width: 150px;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import "./styles/Navbar.css";
+import "./styles/Homepage.css";
 export const Home = () => {
   return (
     <>

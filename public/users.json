@@ -1,0 +1,16 @@
+{
+  "users": {
+    "user1": {
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "password": "hashed_password_1",
+      "mobile": "8989898989"
+    },
+    "user2": {
+      "name": "Jane Smith",
+      "email": "janesmith@example.com",
+      "password": "hashed_password_2",
+      "mobile": "9898989898"
+    }
+  }
+}
