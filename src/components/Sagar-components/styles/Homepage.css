@@ -1,0 +1,44 @@
+main div img {
+  width: 100%;
+  border-radius: 0px 0px 0px 100px;
+}
+main .gymImgs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+main .gymImgs img {
+  border-radius: 10px;
+}
+main .gympngs p {
+  padding-inline: 50px;
+  padding-bottom: 50px;
+}
+main .gympngs {
+  width: 1360px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+}
+main .gympngs img {
+  width: 250px;
+  padding: 50px;
+  padding-top: 75px;
+}
+
+.routs {
+  padding-top: 100px;
+  text-align: center;
+}
+main .goal div {
+  margin-top: 75px;
+  text-align: center;
+  padding-inline: 50px;
+}
+.goal img {
+  width: 50px;
+  object-fit: cover;
+}

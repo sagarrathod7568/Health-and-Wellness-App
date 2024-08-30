@@ -1,0 +1,10 @@
+div.bg {
+  border-color: #f9d326;
+}
+div.login {
+  border: 1px solid #1d1d1d39;
+  background-color: #1d1d1df9;
+  color: aliceblue;
+  border-radius: 15px;
+  margin-top: 100px;
+}

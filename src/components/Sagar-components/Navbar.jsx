@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "./assets/webLogo2.png";
 import "./styles/Navbar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -7,11 +7,13 @@ import { useAuth } from "../../context/AuthContext";
 
 export const Navbar = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
+    alert("Logged Out !");
     logout()
       .then(() => {
-        // Optionally, you can add a redirect here or additional logic after logout
+        navigate("/"); // Redirect to home page after logout
       })
       .catch((error) => {
         console.error("Logout failed", error);
@@ -27,18 +29,18 @@ export const Navbar = () => {
           </Link>
         </div>
         <div className="space">
-         
-            {user ? (
-              <>
-                <Link to="/about">About</Link>
-                <Link to="/profile">Profile</Link>
-              </>
-            ) : (
-              <>
-                <Link to="/about">About</Link>
-              </>
-            )}
-          
+          {user ? (
+            <>
+              <Link to="/articles">Articles</Link>
+              <Link to="/about">About</Link>
+              <Link to="/profile">Profile</Link>
+            </>
+          ) : (
+            <>
+              <Link to="/articles">Articles</Link>
+              <Link to="/about">About</Link>
+            </>
+          )}
           <div className="auth space">
             {user ? (
               <>

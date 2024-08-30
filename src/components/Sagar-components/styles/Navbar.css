@@ -34,67 +34,9 @@ nav .space {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
 }
 nav .auth a:active {
   color: #1d1d1d;
   background-color: #f9d326;
-}
-
-/* login signup css */
-div.bg {
-  border-color: #f9d326;
-}
-div.login {
-  border: 1px solid #1d1d1d39;
-  background-color: #1d1d1df9;
-  color: aliceblue;
-  border-radius: 15px;
-  margin-top: 100px;
-}
-
-/* Home.jsx */
-main div img {
-  width: 100%;
-  border-radius: 0px 0px 0px 100px;
-}
-main .gymImgs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-main .gymImgs img {
-  border-radius: 10px;
-}
-main .gympngs p {
-  padding-inline: 50px;
-  padding-bottom: 50px;
-}
-main .gympngs {
-  width: 1360px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: auto;
-}
-main .gympngs img {
-  width: 250px;
-  padding: 50px;
-  padding-top: 75px;
-}
-
-.routs {
-  padding-top: 100px;
-  text-align: center;
-}
-main .goal div {
-  margin-top: 75px;
-  text-align: center;
-  padding-inline: 50px;
-}
-.goal img {
-  width: 50px;
-  object-fit: cover;
 }

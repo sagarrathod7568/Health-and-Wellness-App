@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles/Navbar.css";
+import "./styles/LoginSignup.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { GoogleLogin } from "@react-oauth/google";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; 
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { jwtDecode } from "jwt-decode";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ export const Login = () => {
 
       if (user) {
         login({ username: user.name, email: user.email });
-        navigate("/"); 
+        navigate("/");
       } else {
         alert("Invalid email or password. Please try again.");
       }
@@ -48,7 +48,7 @@ export const Login = () => {
 
   const handleGoogleLogin = async (response) => {
     try {
-      const decoded = jwt_decode(response.credential);
+      const decoded = jwtDecode(response.credential);
       const user = {
         name: decoded.name,
         email: decoded.email,
@@ -123,7 +123,7 @@ export const Login = () => {
           <button type="submit" className="btn btn-warning">
             Log in
           </button>
-          <span className=" mx-3 text-center">or</span>
+          <span className="mx-3 text-center">or</span>
           <div className="my-4 mb-0">
             <GoogleLogin
               onSuccess={handleGoogleLogin}

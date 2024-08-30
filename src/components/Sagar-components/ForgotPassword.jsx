@@ -1,87 +1,152 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles/Navbar.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/Navbar.css";
 
 export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState(""); // State for feedback message
-  const [showEditButton, setShowEditButton] = useState(false); // State for showing the edit button
+  const [mobile, setMobile] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isVerified, setIsVerified] = useState(false);
   const navigate = useNavigate();
 
   const URL =
     "https://health-is-wealth-4239a-default-rtdb.asia-southeast1.firebasedatabase.app/users.json";
 
-  const handleSubmit = async (e) => {
+  const handleVerify = async (e) => {
     e.preventDefault();
 
-    if (!email) {
-      setMessage("Please enter your email address.");
+    try {
+      const { data } = await axios.get(URL);
+      const existingUsers = data || {};
+      const user = Object.values(existingUsers).find(
+        (user) => user.email === email && user.mobile === mobile
+      );
+
+      if (user) {
+        setIsVerified(true);
+        alert("Email and Mobile Verified, Now you can Reset your password ");
+      } else {
+        alert("Invalid email or mobile number. Please try again.");
+      }
+    } catch (error) {
+      console.error("Verification failed:", error);
+      alert("Failed to verify. Please try again.");
+    }
+  };
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+
+    if (newPassword !== confirmPassword) {
+      alert("Passwords do not match. Please try again.");
       return;
     }
 
     try {
       const { data } = await axios.get(URL);
       const existingUsers = data || {};
-      const user = Object.entries(existingUsers).find(
-        ([key, user]) => user.email === email
+      const userKey = Object.keys(existingUsers).find(
+        (key) =>
+          existingUsers[key].email === email &&
+          existingUsers[key].mobile === mobile
       );
 
-      if (user) {
-        const [userId] = user; // Extract userId from the array
-        setMessage("Email verified. You can reset your password now.");
-        setShowEditButton(true);
-        localStorage.setItem("resetPasswordUserId", userId); // Store userId
+      if (userKey) {
+        const updatedUser = {
+          ...existingUsers[userKey],
+          password: newPassword,
+        };
+
+        await axios.put(
+          `https://health-is-wealth-4239a-default-rtdb.asia-southeast1.firebasedatabase.app/users/${userKey}.json`,
+          updatedUser
+        );
+
+        alert(
+          "Password reset successful! You can now log in with your new password."
+        );
+        navigate("/login");
       } else {
-        setMessage("Email not found. Please check the email address.");
-        setShowEditButton(false);
+        alert("Failed to reset password. Please try again.");
       }
     } catch (error) {
-      console.error("Error fetching users:", error);
-      setMessage("Failed to check email. Please try again.");
+      console.error("Password reset failed:", error);
+      alert("Failed to reset password. Please try again.");
     }
-  };
-
-  const handlePasswordReset = () => {
-    navigate("/resetPassword"); // Redirect to reset password page
   };
 
   return (
     <div className="d-flex justify-content-center">
-      <div className="p-4 w-25 login">
+      <div className="p-4 w-25 forgot-password login">
         <h1 className="px-4">Forgot Password</h1>
-        <form className="px-4 py-3" onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Email address
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              placeholder="email@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <button type="submit" className="btn btn-warning">
-            Send Reset Link
-          </button>
-        </form>
-        {message && <p className="mt-3">{message}</p>}
-        {showEditButton && (
-          <button className="btn btn-info mt-2" onClick={handlePasswordReset}>
-            Edit Password
-          </button>
+        {!isVerified ? (
+          <form className="px-4 py-3" onSubmit={handleVerify}>
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">
+                Email address
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                placeholder="email@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="mobile" className="form-label">
+                Mobile Number
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="mobile"
+                placeholder="1234567890"
+                value={mobile}
+                onChange={(e) => setMobile(e.target.value)}
+              />
+            </div>
+            <button type="submit" className="btn btn-warning mt-1">
+              Verify
+            </button>
+          </form>
+        ) : (
+          <form className="px-4 py-3" onSubmit={handleResetPassword}>
+            <div className="mb-3">
+              <label htmlFor="newPassword" className="form-label">
+                New Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="newPassword"
+                placeholder="New Password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="confirmPassword" className="form-label">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+            <button type="submit" className="btn btn-warning mt-2">
+              Reset Password
+            </button>
+          </form>
         )}
-        <div className="dropdown-divider"></div>
-        <a className="dropdown-item px-4" href="/login">
-          Back to Login
-        </a>
-        <a className="dropdown-item px-4 pb-2" href="/signup">
-          New around here? Sign up
-        </a>
       </div>
     </div>
   );
