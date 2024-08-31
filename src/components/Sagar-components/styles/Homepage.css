@@ -3,18 +3,15 @@ main div img {
   border-radius: 0px 0px 0px 100px;
 }
 main .gymImgs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 main .gymImgs img {
   border-radius: 10px;
 }
 main .gympngs p {
   padding-inline: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 25px;
 }
 main .gympngs {
   width: 1360px;
@@ -29,12 +26,19 @@ main .gympngs img {
   padding-top: 75px;
 }
 
+@media (max-width: 575px) {
+  .paragraph-adjust {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+
 .routs {
   padding-top: 100px;
   text-align: center;
 }
 main .goal div {
-  margin-top: 75px;
+  margin-top: 25px;
   text-align: center;
   padding-inline: 50px;
 }
