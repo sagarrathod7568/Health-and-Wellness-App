@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "./assets/webLogo2.png";
+import Logo from "../Sagar-components/assets/navlogo.png";
 import "./styles/Navbar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useAuth } from "../../context/AuthContext";
@@ -13,7 +13,7 @@ export const Navbar = () => {
     alert("Logged Out !");
     logout()
       .then(() => {
-        navigate("/"); 
+        navigate("/");
       })
       .catch((error) => {
         console.error("Logout failed", error);
