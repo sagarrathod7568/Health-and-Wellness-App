@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/LoginSignup.css";
 import axios from "axios";
@@ -7,8 +7,12 @@ import { useAuth } from "../../context/AuthContext";
 import { GoogleLogin } from "@react-oauth/google";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { jwtDecode } from "jwt-decode";
+import initAOS from "./assets/aos";
 
 export const Login = () => {
+  useEffect(() => {
+    initAOS();
+  }, []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -67,9 +71,13 @@ export const Login = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center">
-      <div className="p-4 w-25 login">
-        <h1 className="px-4">Login</h1>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <div
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
+        className="p-4 login "
+      >
+        <h1 className="px-4 text-center text-md-start">Login</h1>
         <form className="px-4 py-3" onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
@@ -120,11 +128,13 @@ export const Login = () => {
               </label>
             </div>
           </div>
-          <button type="submit" className="btn btn-warning">
-            Log in
-          </button>
-          <span className="mx-3 text-center">or</span>
-          <div className="my-4 mb-0">
+          <div className="d-grid">
+            <button type="submit" className="btn btn-warning">
+              Log in
+            </button>
+          </div>
+          <div className="text-center p-2">or</div>
+          <div className=" d-flex justify-content-center ">
             <GoogleLogin
               onSuccess={handleGoogleLogin}
               onError={() => {

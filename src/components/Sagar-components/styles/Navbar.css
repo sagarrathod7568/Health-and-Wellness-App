@@ -8,35 +8,6 @@ body {
 }
 
 nav {
-  background-color: #1d1d1d;
-  position: fixed;
   width: 100%;
-}
-nav .navbar-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-}
-nav a:active {
-  color: #f9d326;
-}
-nav .auth a {
-  border: 1px solid #f9d326;
-  padding: 5px 15px 7px 15px;
-  border-radius: 5px;
-}
-nav .space {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-}
-nav .auth a:active {
-  color: #1d1d1d;
-  background-color: #f9d326;
+  z-index: 1000;
 }

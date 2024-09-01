@@ -6,51 +6,49 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+.routs {
+  border-bottom: 2px solid #fec107;
+  width: 250px;
+  padding-bottom: 5px;
+  margin: auto;
+  margin-bottom: 25px;
+}
 section .profile-intro {
   background: #f6f6f8;
   border-radius: 25px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  padding-left: 150px;
+  div {
+    img {
+      width: 30vw;
+    }
+  }
+  div {
+    padding-inline: 50px;
+  }
 }
 section .guidlines {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
   background: #1d1d1d;
   color: aliceblue;
-  padding: 25px;
+  padding: 90px 90px 50px 90px;
   border-radius: 25px;
-  div {
-    width: 600px;
-    padding-bottom: 20px;
-    p {
-      text-align: center;
-      padding-inline: 55px;
-      color: grey;
-    }
+  p {
+    padding-inline: 70px;
+    color: gray;
   }
 }
 
-section .habits {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-  background: #f6f6f8;
+section .habbits {
   padding: 25px;
-  margin-bottom: 50px;
-  border-radius: 20px;
+  background: #f6f6f8;
+  border-radius: 25px;
+  img {
+    width: 10vw;
+  }
   div {
-    width: 500px;
-    text-align: center;
-
-    img {
-      text-align: center;
-      width: 150px;
-    }
+    padding-inline: 25px;
   }
 }

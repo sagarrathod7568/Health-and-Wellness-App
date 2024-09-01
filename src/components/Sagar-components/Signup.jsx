@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/Navbar.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import axios from "axios";
-import CryptoJS from "crypto-js"; // Use crypto-js for hashing
+import CryptoJS from "crypto-js";
+import initAOS from "./assets/aos";
 
 export const Signup = () => {
+  useEffect(() => {
+    initAOS();
+  }, []);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [mobile, setMobile] = useState(""); // New state for mobile number
+  const [mobile, setMobile] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
@@ -34,8 +38,8 @@ export const Signup = () => {
         await axios.post(URL, {
           name: userObject.name,
           email: userObject.email,
-          password: null, // No password for Google signup
-          mobile: null, // No mobile number for Google signup
+          password: null,
+          mobile: null,
         });
       }
 
@@ -74,19 +78,18 @@ export const Signup = () => {
         alert("Email already exists. Redirecting to login.");
         navigate("/login");
       } else {
-        // Hashing password
         console.log("Form submitted:", {
           name,
           email,
           password,
-          mobile, // Include mobile number
+          mobile,
         });
 
         await axios.post(URL, {
           name,
           email,
           password,
-          mobile, // Include mobile number
+          mobile,
         });
 
         alert("Sign up successful! Redirecting to Login.");
@@ -99,9 +102,13 @@ export const Signup = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center bg">
-      <div className="p-4 w-25 login">
-        <h1 className="px-4">Signup</h1>
+    <div className=" d-flex justify-content-center align-items-center bg min-vh-100">
+      <div
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
+        className="p-4  login"
+      >
+        <h1 className="px-4 text-center text-md-start">Signup</h1>
         <form className="px-4 py-3" onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
@@ -165,11 +172,11 @@ export const Signup = () => {
             </div>
           </div>
 
-          <button type="submit" className="btn btn-warning mt-2">
+          <button type="submit" className="btn btn-warning mt-3 w-100">
             Sign up
           </button>
-          <span className="mx-3 text-center">or</span>
-          <div className="my-4 mb-0">
+          <span className="d-block text-center p-2">or</span>
+          <div className="my-0 mb-0 d-flex justify-content-center">
             <GoogleLogin
               onSuccess={handleGoogleSuccess}
               onError={handleGoogleFailure}
@@ -179,9 +186,8 @@ export const Signup = () => {
           </div>
         </form>
         <div className="dropdown-divider"></div>
-
-        <Link className="dropdown-item px-4 py-0" to="/login">
-          Have already Account? <b className="text-warning">Log in</b>
+        <Link className="dropdown-item px-4 py-0 text-center" to="/login">
+          Have an account already? <b className="text-warning">Log in</b>
         </Link>
       </div>
     </div>

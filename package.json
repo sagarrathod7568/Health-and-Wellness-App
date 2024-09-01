@@ -25,6 +25,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@google/generative-ai": "^0.17.1",
     "@react-oauth/google": "^0.12.1",
+    "aos": "^2.3.4",
     "axios": "^1.7.5",
     "bootstrap": "^5.3.3",
     "crypto-js": "^4.2.0",

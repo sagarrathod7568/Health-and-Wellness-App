@@ -34,18 +34,16 @@ export const ResetPassword = () => {
         return;
       }
 
-      // Fetch user data
       const { data } = await axios.get(URL);
       const user = data[userId];
 
       if (user) {
-        // Update the password in the database
         await axios.patch(`${URL}/${userId}.json`, { password: newPassword });
 
         setMessage("Password updated successfully. Redirecting to login...");
         setTimeout(() => {
           navigate("/login");
-        }, 2000); // Redirect after 2 seconds
+        }, 2000);
       } else {
         setMessage("User not found.");
       }
@@ -56,9 +54,9 @@ export const ResetPassword = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center">
-      <div className="p-4 w-25 login">
-        <h1 className="px-4">Reset Password</h1>
+    <div className="d-flex justify-content-center align-items-center min-vh-100">
+      <div className="p-4 w-50 w-md-50 w-lg-25 login">
+        <h1 className="px-4 text-center text-md-start">Reset Password</h1>
         <form className="px-4 py-3" onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="newPassword" className="form-label">
@@ -86,16 +84,22 @@ export const ResetPassword = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
-          <button type="submit" className="btn btn-warning">
+          <button type="submit" className="btn btn-warning w-100">
             Reset Password
           </button>
         </form>
-        {message && <p className="mt-3">{message}</p>}
+        {message && <p className="mt-3 text-center">{message}</p>}
         <div className="dropdown-divider"></div>
-        <a className="dropdown-item px-4" href="/login">
+        <a
+          className="dropdown-item text-center text-md-start px-4"
+          href="/login"
+        >
           Back to Login
         </a>
-        <a className="dropdown-item px-4 pb-2" href="/signup">
+        <a
+          className="dropdown-item text-center text-md-start px-4 pb-2"
+          href="/signup"
+        >
           New around here? Sign up
         </a>
       </div>

@@ -79,9 +79,9 @@ export const ForgotPassword = () => {
   };
 
   return (
-    <div className="d-flex justify-content-center">
-      <div className="p-4 w-25 forgot-password login">
-        <h1 className="px-4">Forgot Password</h1>
+    <div className="d-flex justify-content-center align-items-center min-vh-100">
+      <div className="p-4 forgot-password login">
+        <h1 className="text-center">Forgot Password</h1>
         {!isVerified ? (
           <form className="px-4 py-3" onSubmit={handleVerify}>
             <div className="mb-3">
@@ -110,7 +110,7 @@ export const ForgotPassword = () => {
                 onChange={(e) => setMobile(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-warning mt-1">
+            <button type="submit" className="btn btn-warning w-100 mt-3">
               Verify
             </button>
           </form>
@@ -142,7 +142,7 @@ export const ForgotPassword = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
-            <button type="submit" className="btn btn-warning mt-2">
+            <button type="submit" className="btn btn-warning w-100 mt-3">
               Reset Password
             </button>
           </form>
