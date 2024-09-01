@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Box, Heading } from "@chakra-ui/react";
 import "../style/about.css";
 import { Footer } from "../../Sagar-components/Footer";
+import { AboutUs } from "../../Sagar-components/AboutUs";
 
 export function About() {
   return (
@@ -38,8 +39,9 @@ export function About() {
           </p>
         </Box>
       </Box>
-      <h1 className="routs mb-4">Our Team</h1>
+      <h1 className="routs mb-2">Our Team</h1>
       <br />
+      <AboutUs />
       <Footer />
     </>
   );
