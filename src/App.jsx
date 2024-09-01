@@ -12,7 +12,7 @@ import { ResetPassword } from "./components/Sagar-components/ResetPassword";
 import{Articles} from "./components/Om-components/components/articles"
 import { LearnMore } from "./components/Om-components/components/learnmore";
 import { ArtContextProvider } from "./components/Om-components/context/artContextProv";
-
+import Chatbot from "./components/Arpan-component/chatbot";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +21,7 @@ function App() {
     <>
     <ArtContextProvider>
       <Navbar />
+      <Chatbot/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/articles" element={<Articles />} />
