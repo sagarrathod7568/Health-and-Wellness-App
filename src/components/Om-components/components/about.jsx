@@ -8,7 +8,7 @@ export function About() {
     <>
       <Box className="about-box">
         <Box className="about">
-          <h1>About Us</h1>
+          <h1 className="routs mb-4">About us</h1>
 
           <p>
             Welcome to <b>Health is Welth</b>, your personalized health and
@@ -38,6 +38,7 @@ export function About() {
           </p>
         </Box>
       </Box>
+      <h1 className="routs mb-4">Our Team</h1>
       <br />
       <Footer />
     </>

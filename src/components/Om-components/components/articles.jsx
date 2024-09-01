@@ -44,12 +44,12 @@ export function Articles() {
         );
         setFilteredData(Object.fromEntries(filtered));
       } else {
-        setFilteredData(data); // If the query is empty, show all articles
+        setFilteredData(data);
       }
-    }, 500); // Debounce delay of 500ms
+    }, 500);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [query, data]); // Re-run when query or data changes
+  }, [query, data]);
 
   if (loading) return <p>Loading articles...</p>;
   if (error) return <p>Error fetching articles: {error}</p>;
@@ -62,13 +62,10 @@ export function Articles() {
   return (
     <>
       <div>
+        <h1 className="routs mb-4">Article</h1>
         <div className="box-search">
           <span className="inpr">
             <form onSubmit={(e) => e.preventDefault()}>
-              <br />
-              <br />
-              <br />
-              <br />
               <input
                 type="text"
                 placeholder="Search articles..."
@@ -92,9 +89,11 @@ export function Articles() {
               </span>
               <h3>{ele.title}</h3>
               <p>{ele.description}</p>
-              <button id="lnbutton" onClick={() => handleData(ele)}>
-                Learn More <GoArrowRight />{" "}
-              </button>
+              <div className="learn">
+                <button id="lnbutton" onClick={() => handleData(ele)}>
+                  Learn More <GoArrowRight />{" "}
+                </button>
+              </div>
             </div>
           ))}
         </Box>
