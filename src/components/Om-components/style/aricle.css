@@ -68,3 +68,17 @@ body {
 #lnbutton:hover {
   background-color: orange;
 }
+.article-img {
+  display: flex;
+  align-items: center;
+  img {
+    width: 25%;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: end;
+    object-fit: cover;
+  }
+}

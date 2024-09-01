@@ -236,12 +236,12 @@ export const Home = () => {
         </div>
 
         <div className="container my-4">
-          <div
-            data-aos="fade-up"
-            data-aos-anchor-placement="top-center"
-            className=" habbits row text-center"
-          >
-            <div className=" col-md-6 col-lg-4 mb-4">
+          <div className=" habbits row text-center">
+            <div
+              data-aos="fade-up"
+              data-aos-anchor-placement="top-center"
+              className=" col-md-6 col-lg-4 mb-4"
+            >
               <img
                 src="https://cdn1.cronometer.com/webflow/cronometer-features-11.svg"
                 alt=""
@@ -250,7 +250,11 @@ export const Home = () => {
               <h5>Track up to 82 micronutrients</h5>
               <p>Log your meals and track all your macro and micronutrients.</p>
             </div>
-            <div className="col-md-6 col-lg-4 mb-4">
+            <div
+              data-aos="fade-up"
+              data-aos-anchor-placement="top-center"
+              className="col-md-6 col-lg-4 mb-4"
+            >
               <img
                 src="https://cdn1.cronometer.com/webflow/cronometer-features-14.svg"
                 alt=""
@@ -262,7 +266,11 @@ export const Home = () => {
                 biometrics!
               </p>
             </div>
-            <div className="col-md-6 col-lg-4 mb-4">
+            <div
+              data-aos="fade-up"
+              data-aos-anchor-placement="top-center"
+              className="col-md-6 col-lg-4 mb-4"
+            >
               <img
                 src="https://cdn1.cronometer.com/webflow/cronometer-features-16.svg"
                 alt=""
@@ -271,7 +279,11 @@ export const Home = () => {
               <h5>Custom diet settings</h5>
               <p>Set weight, macro & nutrient targets to meet your goals.</p>
             </div>
-            <div className="col-md-6 col-lg-4 mb-4">
+            <div
+              data-aos="fade-up"
+              data-aos-anchor-placement="top-center"
+              className="col-md-6 col-lg-4 mb-4"
+            >
               <img
                 src="https://cdn1.cronometer.com/webflow/cronometer-features-15.svg"
                 alt=""
@@ -282,7 +294,11 @@ export const Home = () => {
                 Track your intermittent fasts and see their effect over time.
               </p>
             </div>
-            <div className="col-md-6 col-lg-4 mb-4">
+            <div
+              data-aos="fade-up"
+              data-aos-anchor-placement="top-center"
+              className="col-md-6 col-lg-4 mb-4"
+            >
               <img
                 src="https://cdn1.cronometer.com/webflow/cronometer-features-12.svg"
                 alt=""
@@ -293,7 +309,11 @@ export const Home = () => {
                 Whether your Keto, Vegan, or on one recommended by your doctor.
               </p>
             </div>
-            <div className="col-md-6 col-lg-4 mb-4">
+            <div
+              data-aos="fade-up"
+              data-aos-anchor-placement="top-center"
+              className="col-md-6 col-lg-4 mb-4"
+            >
               <img
                 src="https://cdn1.cronometer.com/webflow/cronometer-features-15.svg"
                 alt=""

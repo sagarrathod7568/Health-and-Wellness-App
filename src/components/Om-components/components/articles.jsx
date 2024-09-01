@@ -95,24 +95,32 @@ export function Articles() {
           </div>
         </div>
 
-        <Box data-aos="fade-up" className="box-arti">
-          {Object.entries(filteredData).map(([id, ele]) => (
-            <div className="Box-art" key={id}>
-              <span className="hex">
-                <p>#Health</p>
-                <p>#Fitness</p>
-              </span>
-              <h3>{ele.title}</h3>
-              <p>{ele.description}</p>
-              <div className="learn">
-                <button id="lnbutton" onClick={() => handleData(ele)}>
-                  Learn More <GoArrowRight />{" "}
-                </button>
+        <div data-aos="fade-up" className="container">
+          <div className="row">
+            {Object.entries(filteredData).map(([id, ele]) => (
+              <div className="col-12 col-md-6 mb-4" key={id}>
+                <div className="Box-art p-3 border">
+                  <span className="hex">
+                    <p>#Health</p>
+                    <p>#Fitness</p>
+                  </span>
+                  <div className="article-img">
+                    <img src={ele.img} alt="" />
+                  <h3>{ele.title}</h3>
+                  </div>
+                  <p>{ele.description}</p>
+                  <div className="learn">
+                    <button id="lnbutton" onClick={() => handleData(ele)}>
+                      Learn More <GoArrowRight />{" "}
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
-        </Box>
+            ))}
+          </div>
+        </div>
       </div>
+
       <br />
       <Footer />
     </>
