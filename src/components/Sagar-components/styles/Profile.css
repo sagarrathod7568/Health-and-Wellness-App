@@ -14,7 +14,7 @@ body {
   margin-bottom: 25px;
 }
 section .profile-intro {
-  background: #f6f6f8;
+  background: #ececec;
   border-radius: 25px;
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@ section .profile-intro {
   }
 }
 section .guidlines {
-  background: #1d1d1d;
+  background: #212429;
   color: aliceblue;
   padding: 90px 90px 50px 90px;
   border-radius: 25px;
@@ -43,7 +43,7 @@ section .guidlines {
 
 section .habbits {
   padding: 25px;
-  background: #f6f6f8;
+  background: #ececec;
   border-radius: 25px;
   img {
     width: 10vw;

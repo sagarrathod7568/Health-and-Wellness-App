@@ -13,7 +13,7 @@ export const AboutUs = () => {
         data-aos-anchor-placement="center-bottom"
         id="about"
         style={{
-          backgroundColor: "white",
+          backgroundColor: "#f9f9f9",
           textAlign: "center",
           paddingBottom: "75px",
         }}

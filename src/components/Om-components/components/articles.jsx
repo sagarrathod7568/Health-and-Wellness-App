@@ -67,21 +67,32 @@ export function Articles() {
     <>
       <div>
         <h1 className="routs mb-4">Article</h1>
-        <div data-aos="fade-up" className="box-search">
-          <span className="inpr">
-            <form onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="text"
-                placeholder="Search articles..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-
-              <button type="submit" id="sub-but">
-                Search
-              </button>
-            </form>
-          </span>
+        <div data-aos="fade-up" className="container py-3">
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-8 col-lg-6">
+              <div className="box-search">
+                <form
+                  onSubmit={(e) => e.preventDefault()}
+                  className="input-group"
+                >
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Search articles..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                  />
+                  <button
+                    type="submit"
+                    id="sub-but"
+                    className="btn btn-warning"
+                  >
+                    Search
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
 
         <Box data-aos="fade-up" className="box-arti">

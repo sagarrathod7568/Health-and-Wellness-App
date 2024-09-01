@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-// import './App.css';
-import '../Sagar-components/styles/chatbot.css'
-
+import React, { useState } from "react";
+import "../Sagar-components/styles/chatbot.css"; 
 function Chatbot() {
   const [chatVisible, setChatVisible] = useState(false);
   const [chatHistory, setChatHistory] = useState([]);
-  const [userInput, setUserInput] = useState('');
+  const [userInput, setUserInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const toggleChat = () => {
@@ -14,11 +12,11 @@ function Chatbot() {
 
   const escapeHTML = (str) => {
     return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
   };
 
   const sendMessage = async (event) => {
@@ -27,27 +25,26 @@ function Chatbot() {
     if (!userInput.trim()) return;
 
     const message = escapeHTML(userInput);
-    setChatHistory([...chatHistory, { type: 'user', message }]);
-    setUserInput('');
+    setChatHistory([...chatHistory, { type: "user", message }]);
+    setUserInput("");
     setIsLoading(true);
 
-    // Add "Typing..." message
     setChatHistory((prev) => [
       ...prev,
-      { type: 'bot', message: 'Typing...', typing: true },
+      { type: "bot", message: "Typing...", typing: true },
     ]);
 
     try {
-      const response = await fetch('/chat', {
-        method: 'POST',
+      const response = await fetch("/chat", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ userInput: message }),
       });
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
 
       const data = await response.json();
@@ -61,11 +58,15 @@ function Chatbot() {
         )
       );
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
       setChatHistory((prev) =>
         prev.map((msg, i) =>
           i === prev.length - 1
-            ? { ...msg, message: 'Sorry, something went wrong. Please try again.', typing: false }
+            ? {
+                ...msg,
+                message: "Sorry, something went wrong. Please try again.",
+                typing: false,
+              }
             : msg
         )
       );
@@ -81,21 +82,27 @@ function Chatbot() {
         onClick={toggleChat}
         aria-label="Toggle Chatbot"
       >
-        {chatVisible ? '✖' : '💬'}
+        {chatVisible ? "✖" : "💬"}
       </button>
 
       {chatVisible && (
         <div id="chatbot">
           <div id="chat-header">
             <h1>Secure Chatbot</h1>
-            <img src="https://user-images.githubusercontent.com/92524410/220310123-91c5a29e-03ad-4b13-aca7-e35f3eb5078d.png" alt="Bot Icon" width="30px" />
+            <img
+              src="https://user-images.githubusercontent.com/92524410/220310123-91c5a29e-03ad-4b13-aca7-e35f3eb5078d.png"
+              alt="Bot Icon"
+              width="30px"
+            />
           </div>
           <div id="chat-container">
             <div id="chat-history">
               {chatHistory.map((msg, index) => (
                 <div
                   key={index}
-                  className={`${msg.type}-message ${msg.typing ? 'typing' : ''}`}
+                  className={`${msg.type}-message ${
+                    msg.typing ? "typing" : ""
+                  }`}
                 >
                   {msg.message}
                 </div>

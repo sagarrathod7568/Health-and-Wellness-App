@@ -1,8 +1,13 @@
 import { Footer } from "./Footer";
 import "./styles/Profile.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect } from "react";
+import initAOS from "./assets/aos";
 
 export const Profile = () => {
+  useEffect(() => {
+    initAOS();
+  }, []);
   return (
     <>
       <section>
@@ -11,13 +16,17 @@ export const Profile = () => {
         <div className="profile-intro container d-flex flex-column flex-md-row align-items-center p-4">
           <div className="col-md-6 text-center text-md-left mb-4 mb-md-0">
             <img
+              data-aos="fade-right"
               src="https://www.fittr.com/static-content/phone_screens_c32895c20c.webp"
               alt=""
               width={"75%"}
               className=""
             />
           </div>
-          <div className="col-md-6 text-center text-md-left">
+          <div
+            data-aos="fade-left"
+            className="col-md-6 text-center text-md-left"
+          >
             <h1>Introducing the App</h1>
             <p>
               Coaches, Community, Customised Plans. Plus loads of free tools
@@ -30,7 +39,7 @@ export const Profile = () => {
 
         <div className="container guidlines mt-4 pt-5">
           <div className="row text-center d-flex">
-            <div className="col-lg-6 mb-4">
+            <div data-aos="fade-up" className="col-lg-6 mb-4">
               <h1>Building Sustainable Habits</h1>
               <p>
                 Getting fit is the easy part, staying fit is the real deal. We
@@ -38,13 +47,14 @@ export const Profile = () => {
                 lifestyle gradually to ensure you don’t lose the results.
               </p>
               <img
+                data-aos="fade-up"
                 src="https://www.fittr.com/static-content/sustainable_habits_124af7fc55.webp"
                 alt=""
                 width={"75%"}
                 className="img-fluid px-5"
               />
             </div>
-            <div className="col-lg-6 mb-4">
+            <div data-aos="fade-up" className="col-lg-6 mb-4">
               <h1>Monitoring and Accountability</h1>
               <p>
                 Our expert coaches don’t just give you diet and training plans -
@@ -52,6 +62,7 @@ export const Profile = () => {
                 fitness journey.
               </p>
               <img
+                data-aos="fade-up"
                 src="https://www.fittr.com/static-content/monitoring_and_accountability_abcdbf501d.webp"
                 alt=""
                 width={"75%"}
@@ -70,7 +81,11 @@ export const Profile = () => {
         </div>
 
         <div className="container my-4">
-          <div className=" habbits row text-center">
+          <div
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-center"
+            className=" habbits row text-center"
+          >
             <div className=" col-md-6 col-lg-4 mb-4">
               <img
                 src="https://cdn1.cronometer.com/webflow/cronometer-features-11.svg"
