@@ -8,11 +8,14 @@ import { GoogleLogin } from "@react-oauth/google";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { jwtDecode } from "jwt-decode";
 import initAOS from "./assets/aos";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Login = () => {
   useEffect(() => {
     initAOS();
   }, []);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -27,7 +30,7 @@ export const Login = () => {
     e.preventDefault();
 
     if (!email || !password) {
-      alert("Please fill in all fields");
+      toast.error("Please fill in all fields");
       return;
     }
 
@@ -41,12 +44,16 @@ export const Login = () => {
       if (user) {
         login({ username: user.name, email: user.email });
         navigate("/");
+        toast.success("Login successful!");
+        setTimeout(()=>{
+          alert("Login successful!");
+        }, 1000)
       } else {
-        alert("Invalid email or password. Please try again.");
+        toast.error("Invalid email or password. Please try again.");
       }
     } catch (error) {
       console.error("Error logging in:", error);
-      alert("Failed to log in. Please try again.");
+      toast.error("Failed to log in. Please try again.");
     }
   };
 
@@ -60,9 +67,10 @@ export const Login = () => {
 
       login({ username: user.name, email: user.email });
       navigate("/");
+      toast.success("Google login successful!");
     } catch (error) {
       console.error("Google login failed:", error);
-      alert("Failed to log in with Google. Please try again.");
+      toast.error("Failed to log in with Google. Please try again.");
     }
   };
 
@@ -139,6 +147,7 @@ export const Login = () => {
               onSuccess={handleGoogleLogin}
               onError={() => {
                 console.error("Google login failed");
+                toast.error("Google login failed");
               }}
               useOneTap
             />
@@ -153,6 +162,8 @@ export const Login = () => {
           Forgot password?
         </a>
       </div>
+
+      <ToastContainer />
     </div>
   );
 };

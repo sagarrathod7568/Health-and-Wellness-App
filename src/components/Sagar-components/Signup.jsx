@@ -6,13 +6,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
-import CryptoJS from "crypto-js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import initAOS from "./assets/aos";
 
 export const Signup = () => {
   useEffect(() => {
     initAOS();
   }, []);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,16 +45,20 @@ export const Signup = () => {
         });
       }
 
+      toast.success("Sign up Successful with Google!");
+      setTimeout(() => {
+        alert("Sign up Successful with Google!");
+      }, 500);
       navigate("/");
     } catch (error) {
       console.error("Failed to decode token:", error);
-      alert("Failed to sign up with Google. Please try again.");
+      toast.error("Failed to sign up with Google. Please try again.");
     }
   };
 
   const handleGoogleFailure = (error) => {
     console.error("Google sign up failed:", error);
-    alert("Failed to sign up with Google. Please try again.");
+    toast.error("Failed to sign up with Google. Please try again.");
   };
 
   const togglePasswordVisibility = () => {
@@ -63,7 +69,7 @@ export const Signup = () => {
     e.preventDefault();
 
     if (!name || !email || !password || !mobile) {
-      alert("Please fill in all fields");
+      toast.error("Please fill in all fields");
       return;
     }
 
@@ -75,16 +81,10 @@ export const Signup = () => {
       );
 
       if (emailExists) {
-        alert("Email already exists. Redirecting to login.");
+        toast.warn("Email already exists. Please login.");
+        alert("Email already exists. Please login.");
         navigate("/login");
       } else {
-        console.log("Form submitted:", {
-          name,
-          email,
-          password,
-          mobile,
-        });
-
         await axios.post(URL, {
           name,
           email,
@@ -92,21 +92,24 @@ export const Signup = () => {
           mobile,
         });
 
-        alert("Sign up successful! Redirecting to Login.");
+        toast.success("Sign up Successful! Redirecting to Login.");
+        setTimeout(() => {
+          alert("Sign up Successful! Now you can Login.");
+        }, 1000);
         navigate("/login");
       }
     } catch (error) {
       console.error("Error during sign up:", error);
-      alert("Failed to sign up. Please try again.");
+      toast.error("Failed to sign up. Please try again.");
     }
   };
 
   return (
-    <div className=" d-flex justify-content-center align-items-center bg min-vh-100">
+    <div className="d-flex justify-content-center align-items-center bg min-vh-100">
       <div
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
-        className="p-4  login"
+        className="p-4 login"
       >
         <h1 className="px-4 text-center text-md-start">Signup</h1>
         <form className="px-4 py-3" onSubmit={handleSubmit}>
@@ -190,6 +193,7 @@ export const Signup = () => {
           Have an account already? <b className="text-warning">Log in</b>
         </Link>
       </div>
+      <ToastContainer />
     </div>
   );
 };
