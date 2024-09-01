@@ -1,10 +1,16 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect } from "react";
+import initAOS from "./assets/aos";
 
 export const AboutUs = () => {
+  useEffect(() => {
+    initAOS();
+  }, []);
   return (
     <>
       <div
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
         id="about"
         style={{
           backgroundColor: "white",

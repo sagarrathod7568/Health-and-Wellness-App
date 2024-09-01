@@ -46,3 +46,9 @@ main .goal div {
   width: 50px;
   object-fit: cover;
 }
+
+.users {
+  background: #f6f6f8;
+  border-radius: 25px;
+  margin-top: 25px;
+}

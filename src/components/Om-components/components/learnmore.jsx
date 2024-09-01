@@ -12,8 +12,7 @@ export function LearnMore() {
 
     return (
         
-        
-
+    
         <div className="main-box">
             <br /><br /><br /><br />
              <span className="hex">

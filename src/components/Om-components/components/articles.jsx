@@ -6,8 +6,12 @@ import { ArtContext } from "../context/artContext";
 import { useNavigate } from "react-router-dom";
 import { GoArrowRight } from "react-icons/go";
 import { Footer } from "../../Sagar-components/Footer";
+import initAOS from "./aos";
 
 export function Articles() {
+  useEffect(() => {
+    initAOS();
+  }, []);
   const [data, setData] = useState([]); // Holds the full set of articles
   const [filteredData, setFilteredData] = useState([]); // Holds the filtered articles based on search query
   const [loading, setLoading] = useState(true);
@@ -63,7 +67,7 @@ export function Articles() {
     <>
       <div>
         <h1 className="routs mb-4">Article</h1>
-        <div className="box-search">
+        <div data-aos="fade-up" className="box-search">
           <span className="inpr">
             <form onSubmit={(e) => e.preventDefault()}>
               <input
@@ -80,7 +84,7 @@ export function Articles() {
           </span>
         </div>
 
-        <Box className="box-arti">
+        <Box data-aos="fade-up" className="box-arti">
           {Object.entries(filteredData).map(([id, ele]) => (
             <div className="Box-art" key={id}>
               <span className="hex">

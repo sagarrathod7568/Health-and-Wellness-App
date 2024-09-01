@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/Navbar.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -6,13 +6,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
-import CryptoJS from "crypto-js"; 
+import CryptoJS from "crypto-js";
+import initAOS from "./assets/aos";
 
 export const Signup = () => {
+  useEffect(() => {
+    initAOS();
+  }, []);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [mobile, setMobile] = useState(""); 
+  const [mobile, setMobile] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
@@ -34,8 +38,8 @@ export const Signup = () => {
         await axios.post(URL, {
           name: userObject.name,
           email: userObject.email,
-          password: null, 
-          mobile: null, 
+          password: null,
+          mobile: null,
         });
       }
 
@@ -78,14 +82,14 @@ export const Signup = () => {
           name,
           email,
           password,
-          mobile, 
+          mobile,
         });
 
         await axios.post(URL, {
           name,
           email,
           password,
-          mobile, 
+          mobile,
         });
 
         alert("Sign up successful! Redirecting to Login.");
@@ -99,7 +103,11 @@ export const Signup = () => {
 
   return (
     <div className=" d-flex justify-content-center align-items-center bg min-vh-100">
-      <div className="p-4  login">
+      <div
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
+        className="p-4  login"
+      >
         <h1 className="px-4 text-center text-md-start">Signup</h1>
         <form className="px-4 py-3" onSubmit={handleSubmit}>
           <div className="mb-3">
