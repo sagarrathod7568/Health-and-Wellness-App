@@ -47,7 +47,7 @@ export const Home = () => {
         </div>
 
         <div className="container guidlines mt-4 pt-5">
-          <div className="row text-center d-flex">
+          <div className="guidlines-img row text-center d-flex justify-content-center">
             <div data-aos="fade-up" className="col-lg-6 mb-4">
               <h1>Building Sustainable Habits</h1>
               <p>
@@ -60,7 +60,7 @@ export const Home = () => {
                 src="https://www.fittr.com/static-content/sustainable_habits_124af7fc55.webp"
                 alt=""
                 width={"75%"}
-                className="img-fluid px-5"
+                className=" img-fluid px-5 "
               />
             </div>
             <div data-aos="fade-up" className="col-lg-6 mb-4">

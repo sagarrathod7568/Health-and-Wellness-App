@@ -1,4 +1,4 @@
-.main-box {
+section .main-box {
   width: 40%;
 
   margin: auto;
@@ -10,6 +10,17 @@
   }
 }
 
-.img-data > img {
+section.img-data > img {
   width: 100%;
+}
+
+.hex {
+  display: flex;
+  column-gap: 10px;
+  p {
+    background-color: #fea500;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: white;
+  }
 }

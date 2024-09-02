@@ -1,15 +1,15 @@
-.hex {
+.articles .hex {
   display: flex;
   column-gap: 10px;
 }
-.hex > p {
+.articles .hex > p {
   background-color: #fea500;
   padding: 5px 15px;
   border-radius: 5px;
   color: white;
 }
 
-.Box-art {
+.articles .Box-art {
   border: 2px solid #ececec;
   border-radius: 15px;
   width: 90%;
@@ -19,32 +19,32 @@
   margin-bottom: 20px;
 }
 
-.box-arti {
+.articles .box-arti {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 10px;
 }
 
-.box-search {
+.articles .box-search {
   width: 90%;
   margin: auto;
   margin-bottom: 25px;
 }
-.box-search > span > form > input {
+.articles .box-search > span > form > input {
   width: 33vw;
   padding: 10px;
   border-radius: 10px;
   height: auto;
 }
 
-.box-search > span > form > button {
+.articles .box-search > span > form > button {
   padding: 10px 35px;
   background-color: orange;
   border-radius: 10px;
   margin-left: 10px;
 }
 
-.inpr > form {
+.articles .inpr > form {
   width: 50vw;
   margin: auto;
   border-radius: 15px;
@@ -54,21 +54,26 @@ body {
   font-family: "Gill Sans", sans-serif;
 }
 
-.learn {
+.articles .learn {
   display: flex;
   justify-content: end;
   align-items: center;
+  #lnbutton {
+    background-color: #f8d422;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #212429;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
 }
-#lnbutton {
-  background-color: #f8d422;
-  border-radius: 5px;
-  padding: 10px 20px;
-  color: #212429;
-}
-#lnbutton:hover {
+
+.articles #lnbutton:hover {
   background-color: orange;
 }
-.article-img {
+.articles .article-img {
   display: flex;
   align-items: center;
   img {

@@ -65,6 +65,9 @@ main .guidlines {
     color: gray;
   }
 }
+main .guidlines-img img {
+  margin: auto;
+}
 
 .routs {
   padding-top: 100px;
@@ -92,7 +95,10 @@ main .habbits {
   background: #ececec;
   border-radius: 25px;
   margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
   img {
+    margin: auto;
     width: 10vw;
   }
   div {

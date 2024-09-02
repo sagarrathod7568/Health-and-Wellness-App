@@ -16,29 +16,30 @@ export function LearnMore() {
   }
 
   return (
-    <div className="main-box ">
-      <span className="hex">
-        <p>
-          <b>#Health</b>
-        </p>
-        <p>
-          <b>#Fitness</b>
-        </p>
-      </span>
-      <Box className="img-data">
-        <img
-          data-aos="fade-up"
-          data-aos-anchor-placement="center-bottom"
-          src={artData.img}
-          alt="error"
-        />
-      </Box>
-      <br />
-
-      <Box>
-        <h2>{artData.title}</h2>
-        <p>{artData.description}</p>
-      </Box>
-    </div>
+    <section>
+      <div className="main-box ">
+        <span className="hex">
+          <p>
+            <b>#Health</b>
+          </p>
+          <p>
+            <b>#Fitness</b>
+          </p>
+        </span>
+        <Box className="img-data">
+          <img
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
+            src={artData.img}
+            alt="error"
+          />
+        </Box>
+        <br />
+        <Box>
+          <h2>{artData.title}</h2>
+          <p>{artData.description}</p>
+        </Box>
+      </div>
+    </section>
   );
 }

@@ -67,9 +67,8 @@ export const Profile = () => {
         </div>
         <Wellness />
 
-        {/* <NutritionFactsComponent /> */}
 
-        <div className="container guidlines mt-4 pt-5">
+        <div className="container guidlines-img mt-4 pt-5">
           <div className="row text-center d-flex">
             <div data-aos="fade-up" className="col-lg-6 mb-4">
               <h1>Building Sustainable Habits</h1>

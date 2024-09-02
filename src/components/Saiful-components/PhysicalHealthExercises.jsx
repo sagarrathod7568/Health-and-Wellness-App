@@ -170,27 +170,29 @@ function PhysicalHealthExercises() {
       <h1 className="routs" style={{ fontSize: "40px" }}>
         Choose Your Excercise
       </h1>
-      <div className="container">
-        {exerciseData.map((card, index) => (
-          <div className="card" key={card.id}>
-            <div className="videobx">
-              <video
-                ref={(el) => (videoRefs.current[index] = el)}
-                src={card.videoSrc}
-                autoPlay
-                loop
-                muted
-                className="video"
-              />
+      <div className="container wellness">
+        <div className="inside">
+          {exerciseData.map((card, index) => (
+            <div className="card" key={card.id}>
+              <div className="videobx">
+                <video
+                  ref={(el) => (videoRefs.current[index] = el)}
+                  src={card.videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  className="video"
+                />
+              </div>
+              <div className="content">
+                <a href="#">
+                  <button>{card.title}</button>
+                </a>
+                <p>{card.description}</p>
+              </div>
             </div>
-            <div className="content">
-              <a href="#">
-                <button>{card.title}</button>
-              </a>
-              <p>{card.description}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <Footer />
     </section>

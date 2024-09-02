@@ -65,7 +65,7 @@ export function Articles() {
 
   return (
     <>
-      <div>
+      <div className="articles">
         <h1 className="routs mb-4">Article</h1>
         <div data-aos="fade-up" className="container py-3">
           <div className="row justify-content-center">
@@ -106,7 +106,7 @@ export function Articles() {
                   </span>
                   <div className="article-img">
                     <img src={ele.img} alt="" />
-                  <h3>{ele.title}</h3>
+                    <h3>{ele.title}</h3>
                   </div>
                   <p>{ele.description}</p>
                   <div className="learn">

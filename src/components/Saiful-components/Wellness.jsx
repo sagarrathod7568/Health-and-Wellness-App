@@ -76,30 +76,32 @@ function Wellness() {
   return (
     <section>
       <h1 className="routs ">Exersice Tips</h1>
-      <div className="container">
-        {cardsData.map((card, index) => (
-          <div className="card" key={card.id}>
-            <div className="videobx">
-              <video
-                ref={(el) => (videoRefs.current[index] = el)}
-                src={card.videoSrc}
-                autoPlay
-                loop
-                muted
-                className="video"
-              />
-            </div>
-            <div className="content">
-              <button onClick={() => navigate(card.navigateTo)}>
-                {card.title}
-              </button>
 
-              <p>{card.description}</p>
+      <div className="container wellness">
+        <div className="inside">
+          {cardsData.map((card, index) => (
+            <div className="card" key={card.id}>
+              <div className="videobx">
+                <video
+                  ref={(el) => (videoRefs.current[index] = el)}
+                  src={card.videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  className="video"
+                />
+              </div>
+              <div className="content">
+                <button onClick={() => navigate(card.navigateTo)}>
+                  {card.title}
+                </button>
+
+                <p>{card.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-      
     </section>
   );
 }

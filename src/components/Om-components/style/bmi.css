@@ -1,4 +1,4 @@
-.bmi-container {
+main .bmi-container {
   max-width: 400px;
   margin: auto;
   padding: 20px;
@@ -10,29 +10,29 @@
   padding-top: 135px;
 }
 
-.bmi-title {
+main .bmi-title {
   font-size: 24px;
   margin-bottom: 20px;
   color: #333333;
 }
 
-.bmi-input-group {
+main .bmi-input-group {
   margin-bottom: 20px;
 }
 
-.bmi-input-group label {
+main .bmi-input-group label {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
   color: #666666;
 }
 
-.bmi-height-inputs {
+main .bmi-height-inputs {
   display: flex;
   justify-content: space-between;
 }
 
-.bmi-input {
+main .bmi-input {
   width: 48%;
   padding: 10px;
   border-radius: 5px;
@@ -41,7 +41,7 @@
   box-sizing: border-box;
 }
 
-.bmi-button {
+main .bmi-button {
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 5px;
@@ -52,20 +52,20 @@
   transition: background-color 0.3s ease;
 }
 
-.bmi-button:hover {
+main .bmi-button:hover {
   background-color: gold;
 }
 
-.bmi-result {
+main .bmi-result {
   margin-top: 20px;
 }
 
-.bmi-result h3 {
+main .bmi-result h3 {
   font-size: 20px;
   color: #333333;
 }
 
-.bmi-result h4 {
+main .bmi-result h4 {
   font-size: 18px;
   color: #666666;
 }
