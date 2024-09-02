@@ -3,6 +3,8 @@ import "./styles/Profile.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect } from "react";
 import initAOS from "./assets/aos";
+import Wellness from "../Saiful-components/Wellness";
+import HealthGoals from "../Saiful-components/HealthGoals";
 
 export const Profile = () => {
   useEffect(() => {
@@ -36,6 +38,8 @@ export const Profile = () => {
             <button className="btn btn-warning mb-4">Get Started</button>
           </div>
         </div>
+        <HealthGoals />
+        <Wellness />
 
         <div className="container guidlines mt-4 pt-5">
           <div className="row text-center d-flex">

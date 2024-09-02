@@ -13,6 +13,7 @@ import{Articles} from "./components/Om-components/components/articles"
 import { LearnMore } from "./components/Om-components/components/learnmore";
 import { ArtContextProvider } from "./components/Om-components/context/artContextProv";
 import Chatbot from "./components/Arpan-component/chatbot";
+import PhysicalHealthExercises from "./components/Saiful-components/PhysicalHealthExercises";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -32,6 +33,7 @@ function App() {
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route path="/resetPassword" element={<ResetPassword />} />
         <Route path="/learn" element={<LearnMore />} />
+        <Route path="/physicalHealth" element={<PhysicalHealthExercises />} />
       </Routes>
       </ArtContextProvider>
     </>

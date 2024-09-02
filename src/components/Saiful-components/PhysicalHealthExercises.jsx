@@ -1,19 +1,20 @@
 import React, { useEffect, useRef } from "react";
 import "./wellness.css";
-import PushUps from "../assets/pushups.mp4";
-import squats from "../assets/squats.mp4";
-import lunges from "../assets/lunges.mp4";
-import plank from "../assets/plank.mp4";
+import PushUps from "./assets/pushups.mp4";
+import squats from "./assets/squats.mp4";
+import lunges from "./assets/lunges.mp4";
+import plank from "./assets/plank.mp4";
 
-import burpees from "../assets/burpees.mp4";
-import mountain from "../assets/mountain.mp4";
-import BicepCurls from "../assets/bicepcurls.mp4";
-import TricepDips from "../assets/tricepdips.mp4";
-import GluteBridges from "../assets/glutebridges.mp4";
-import RussianTwists from "../assets/russsian.mp4";
-import Deadlifts from "../assets/deadLift.mp4";
-import ChestPress from "../assets/ChestPress.mp4";
-import PullUps from "../assets/PullUps.mp4";
+import burpees from "./assets/burpees.mp4";
+import mountain from "./assets/mountain.mp4";
+import BicepCurls from "./assets/bicepcurls.mp4";
+import TricepDips from "./assets/tricepdips.mp4";
+import GluteBridges from "./assets/glutebridges.mp4";
+import RussianTwists from "./assets/russsian.mp4";
+import Deadlifts from "./assets/deadLift.mp4";
+import ChestPress from "./assets/ChestPress.mp4";
+import PullUps from "./assets/PullUps.mp4";
+import { Footer } from "../Sagar-components/Footer";
 
 function PhysicalHealthExercises() {
   const videoRefs = useRef([]);
@@ -166,7 +167,7 @@ function PhysicalHealthExercises() {
 
   return (
     <section style={{ display: "flex ", flexDirection: "column" }}>
-      <h1 style={{ fontSize: "40px", marginTop: "10px" }}>
+      <h1 className="routs" style={{ fontSize: "40px" }}>
         Choose Your Excercise
       </h1>
       <div className="container">
@@ -187,13 +188,11 @@ function PhysicalHealthExercises() {
                 <button>{card.title}</button>
               </a>
               <p>{card.description}</p>
-              <a href="#">
-                <button>Learn More</button>
-              </a>
             </div>
           </div>
         ))}
       </div>
+      <Footer />
     </section>
   );
 }
