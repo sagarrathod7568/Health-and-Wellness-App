@@ -79,9 +79,15 @@ main .goal div {
   padding-inline: 50px;
   margin-bottom: 50px;
 }
-.goal img {
+main.goal img {
   width: 50px;
   object-fit: cover;
+}
+
+main .container .row-in img {
+  margin: auto;
+  padding: 20px;
+  width: 100px;
 }
 
 .users {

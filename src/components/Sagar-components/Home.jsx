@@ -157,8 +157,8 @@ export const Home = () => {
           </div>
         </div>
 
-        <div className="goal container">
-          <div className="row">
+        <div className="container">
+          <div className="row row-in">
             <div
               data-aos="zoom-in"
               className="col-12 col-md-4 text-center mb-2"
