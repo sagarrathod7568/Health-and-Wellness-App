@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import "./wellness.css";
+import { useNavigate } from "react-router-dom";
+import "./physicalHealth.css";
 import physical from "../assets/physical.mp4";
 import mental from "../assets/mental.mp4";
 import emotional from "../assets/emotional.mp4";
@@ -9,12 +10,14 @@ import social from "../assets/social.mp4";
 
 function Wellness() {
   const videoRefs = useRef([]);
+  const navigate = useNavigate();
 
   const cardsData = [
     {
       id: 1,
       videoSrc: physical,
       title: "Physical Health",
+      navigateTo: "/physicalHealth",
       description:
         "Elevate your physical well-being with a balanced approach to nutrition, regular exercise, and adequate sleep. Explore tips for maintaining a healthy weight, managing chronic conditions, and incorporating fitness into your daily routine.",
     },
@@ -22,6 +25,7 @@ function Wellness() {
       id: 2,
       videoSrc: mental,
       title: "Mental Health",
+      navigateTo: "/mentalHealth",
       description:
         "Cultivate a positive mindset and emotional resilience. Discover strategies for stress management, mindfulness practices, and building healthy coping mechanisms. Prioritize self-care to enhance your mental well-being.",
     },
@@ -29,6 +33,7 @@ function Wellness() {
       id: 3,
       videoSrc: emotional,
       title: "Emotional Health",
+      navigateTo: "/emotionalHealth",
       description:
         "Nourish your emotional well-being by understanding and expressing your feelings. Learn effective communication skills, coping mechanisms for challenging emotions, and techniques for fostering a healthy emotional balance.",
     },
@@ -36,13 +41,15 @@ function Wellness() {
       id: 4,
       videoSrc: spiritual,
       title: "Social",
+      navigateTo: "/socialHealth",
       description:
-        "Embark on a journey of self-discovery and purpose. Explore spiritual practices, mindfulness, and reflection exercises to enhance your spiritual well-being. Connect with your inner self and find meaning in your life's journey.",
+        "Enhance your social well-being by building strong relationships and engaging in community activities. Learn the importance of social connections for overall wellness.",
     },
     {
       id: 5,
       videoSrc: challenge,
       title: "30 Day Challenge",
+      navigateTo: "/30DayChallenge",
       description:
         "Embark on the journey to a stronger, healthier you. Every drop of sweat is a step toward your goals. Embrace the challenge, celebrate the progress, and let each workout be a testament to your commitment. You've got this!",
     },
@@ -50,6 +57,7 @@ function Wellness() {
       id: 6,
       videoSrc: social,
       title: "Spiritual Wellness",
+      navigateTo: "/spiritualWellness",
       description:
         "Embark on a journey of self-discovery and purpose. Explore spiritual practices, mindfulness, and reflection exercises to enhance your spiritual well-being. Connect with your inner self and find meaning in your life's journey.",
     },
@@ -79,13 +87,15 @@ function Wellness() {
               />
             </div>
             <div className="content">
-              <a href="#">
-                <button>{card.title}</button>
-              </a>
+              <button onClick={() => navigate(card.navigateTo)}>
+                {card.title}
+              </button>
+
               <p>{card.description}</p>
-              <a href="#">
-                <button>Learn More</button>
-              </a>
+
+              <button onClick={() => navigate(card.navigateTo)}>
+                Learn More
+              </button>
             </div>
           </div>
         ))}
