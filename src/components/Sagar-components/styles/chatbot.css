@@ -5,7 +5,7 @@ body {
   padding: 0;
 }
 
-#chatbot {
+.App #chatbot {
   position: fixed;
   bottom: 100px;
   right: 30px;
@@ -20,7 +20,7 @@ body {
   display: flex;
 }
 
-#chatbot-toggle {
+.App #chatbot-toggle {
   position: fixed;
   bottom: 25px;
   right: 25px;
@@ -36,7 +36,7 @@ body {
   z-index: 1001;
 }
 
-#chat-header {
+.App #chat-header {
   background-color: #007bff;
   color: white;
   padding: 10px 20px;
@@ -47,12 +47,12 @@ body {
   align-items: center;
 }
 
-#chat-header h1 {
+.App #chat-header h1 {
   font-size: 18px;
   margin: 0;
 }
 
-#chat-container {
+.App #chat-container {
   padding: 20px;
   flex-grow: 1;
   overflow-y: auto;
@@ -60,11 +60,11 @@ body {
   margin-bottom: 10px;
 }
 
-#chat-history {
+.App #chat-history {
   margin-bottom: 15px;
 }
 
-.user-message {
+.App .user-message {
   padding: 10px;
   border-radius: 15px 15px 0px 15px;
   margin-bottom: 10px;
@@ -73,7 +73,7 @@ body {
   clear: both;
   word-wrap: break-word;
 }
-.bot-message {
+.App .bot-message {
   padding: 15px;
   border-radius: 15px 15px 15px 0px;
   margin-bottom: 10px;
@@ -83,19 +83,19 @@ body {
   word-wrap: break-word; /* Ensure long messages wrap */
 }
 
-.user-message {
+.App .user-message {
   background-color: #007bff;
   color: white;
   float: right;
 }
 
-.bot-message {
+.App .bot-message {
   background-color: #e8e8e8;
   color: #333;
   float: left;
 }
 
-#chat-form {
+.App #chat-form {
   display: flex;
   padding: 10px;
   background-color: #f1f1f1;
@@ -103,7 +103,7 @@ body {
   border-bottom-right-radius: 15px;
 }
 
-#user-input {
+.App #user-input {
   flex-grow: 1;
   padding: 10px;
   border-radius: 20px;
@@ -112,7 +112,7 @@ body {
   margin-right: 10px;
 }
 
-button {
+.App button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -122,11 +122,11 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
+.App button:hover {
   background-color: #0056b3;
 }
 
-#loader {
+.App #loader {
   display: none;
   text-align: center;
   margin-top: 10px;

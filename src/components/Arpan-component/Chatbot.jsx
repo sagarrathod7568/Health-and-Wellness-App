@@ -82,7 +82,7 @@ function Chatbot() {
         onClick={toggleChat}
         aria-label="Toggle Chatbot"
       >
-        {chatVisible ? "✖" : "💬"}
+        {chatVisible ? "X" : "💬"}
       </button>
 
       {chatVisible && (
