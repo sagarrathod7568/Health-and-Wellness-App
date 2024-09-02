@@ -13,4 +13,8 @@ export default defineConfig({
       },
     },
   },
+  base: "./", // Correctly placed at the root level
+  build: {
+    outDir: "dist", // Correctly placed at the root level
+  },
 });
