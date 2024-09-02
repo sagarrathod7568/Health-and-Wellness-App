@@ -16,7 +16,7 @@ import {
   FormLabel,
   Select,
 } from "@chakra-ui/react";
-import calorieImage from "../assets/calorie.jpg"; // Import the image
+import calorieImage from "./assets/calorie.jpg"; // Import the image
 
 const DietPlanning = () => {
   const [dietType, setDietType] = useState("");

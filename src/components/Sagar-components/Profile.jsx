@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import initAOS from "./assets/aos";
 import Wellness from "../Saiful-components/Wellness";
 import HealthGoals from "../Saiful-components/HealthGoals";
+import NutritionFactsComponent from "../Saiful-components/NutritionFactsComponent";
 
 export const Profile = () => {
   useEffect(() => {
@@ -39,7 +40,34 @@ export const Profile = () => {
           </div>
         </div>
         <HealthGoals />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "25px",
+            textDecoration: "none",
+            color: "white",
+          }}
+        >
+          <button className="btn btn-warning ">
+            <a className="text-dark" href="/nutration">
+              Nutrition Facts
+            </a>
+          </button>
+          <button className="btn btn-warning">
+            <a className="text-dark" href="/mealLoger">
+              Meal Loger
+            </a>
+          </button>
+          <button className="btn btn-warning">
+            <a className="text-dark" href="/BmiCal">
+              BMI Calculator
+            </a>
+          </button>
+        </div>
         <Wellness />
+
+        {/* <NutritionFactsComponent /> */}
 
         <div className="container guidlines mt-4 pt-5">
           <div className="row text-center d-flex">
