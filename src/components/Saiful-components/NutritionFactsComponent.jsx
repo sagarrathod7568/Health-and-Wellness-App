@@ -10,7 +10,7 @@ import {
   Grid,
   GridItem,
 } from "@chakra-ui/react";
-import foodVideo from "../assets/food_photo.mp4"; // Adjust the path according to your folder structure
+import foodVideo from "./assets/food_photo.mp4"; // Adjust the path according to your folder structure
 
 const key = "29159f105b44a9d01b96dc338554fa07";
 
@@ -69,7 +69,12 @@ const NutritionFactsComponent = () => {
   };
 
   return (
-    <Box position="relative" minHeight="100vh" overflow="hidden">
+    <Box
+      style={{ paddingTop: "100px" }}
+      position="relative"
+      minHeight="100vh"
+      overflow="hidden"
+    >
       {/* Background Video */}
       <Box
         as="video"

@@ -25,7 +25,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import physical from "../assets/physical.mp4";
+import physical from "./assets/physical.mp4";
 
 // Register Chart.js components
 ChartJS.register(
@@ -108,126 +108,155 @@ const HealthGoals = () => {
   };
 
   return (
-    <Box position="relative" minHeight="100vh">
-      {/* Background Video */}
-      <Box
-        position="absolute"
-        top={0}
-        left={0}
-        width="100%"
-        height="100%"
-        overflow="hidden"
-        zIndex={-1}
-      >
-        <video
-          src={physical}
-          autoPlay
-          loop
-          muted
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
-      </Box>
-
-      {/* Foreground Content */}
-      <Center>
+    <>
+      <h1 className="routs mb-4">Health Goal</h1>
+      <Box position="relative" minHeight="100vh">
+        {/* Background Video */}
         <Box
-          p={5}
-          maxW="800px"
-          mx="auto"
-          bg="rgba(255, 255, 255, 0.8)"
-          borderRadius="md"
+          position="absolute"
+          top={0}
+          left={0}
+          width="100%"
+          height="100%"
+          overflow="hidden"
+          zIndex={-1}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
         >
-          <Heading mb={4}>Health Goals Tracker</Heading>
-
-          {showForm && (
-            <>
-              <FormControl mb={4}>
-                <FormLabel htmlFor="query">Exercise Description</FormLabel>
-                <Input
-                  id="query"
-                  placeholder="Describe your exercise"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-              </FormControl>
-
-              <FormControl mb={4}>
-                <FormLabel htmlFor="age">Age</FormLabel>
-                <Input
-                  id="age"
-                  type="number"
-                  placeholder="Enter your age"
-                  value={age}
-                  onChange={(e) => setAge(e.target.value)}
-                />
-              </FormControl>
-
-              <FormControl mb={4}>
-                <FormLabel htmlFor="gender">Gender</FormLabel>
-                <Input
-                  id="gender"
-                  placeholder="Enter your gender"
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
-                />
-              </FormControl>
-
-              <FormControl mb={4}>
-                <FormLabel htmlFor="weight">Weight (kg)</FormLabel>
-                <Input
-                  id="weight"
-                  type="number"
-                  placeholder="Enter your weight"
-                  value={weight}
-                  onChange={(e) => setWeight(e.target.value)}
-                />
-              </FormControl>
-
-              <Button colorScheme="teal" onClick={handleSearch}>
-                Search
-              </Button>
-            </>
-          )}
-
-          {!showForm && data && (
-            <Box mt={6}>
-              <Card
-                variant="outline"
-                mb={6}
-                p={4}
-                _hover={{ bg: "gray.100", boxShadow: "lg" }}
-              >
-                <CardBody>
-                  <Heading size="md">{data.user_input}</Heading>
-                  <Text>Duration: {data.duration_min} minutes</Text>
-                  <Text>Calories Burned: {data.nf_calories} kcal</Text>
-                </CardBody>
-              </Card>
-
-              <Flex justifyContent="space-between" mt={6}>
-                <Box flex="1" height="300px" mr={3}>
-                  <Heading size="sm">Calories Burned (Bar Chart)</Heading>
-                  <Bar data={chartData} options={chartOptions} />
-                </Box>
-
-                <Box flex="1" height="300px" ml={3}>
-                  <Heading size="sm">Calories Burned (Pie Chart)</Heading>
-                  <Pie data={chartData} options={chartOptions} />
-                </Box>
-              </Flex>
-
-              <Button
-                mt={6}
-                colorScheme="teal"
-                onClick={() => setShowForm(true)}
-              >
-                Go Back
-              </Button>
-            </Box>
-          )}
+          <video
+            src={physical}
+            autoPlay
+            loop
+            muted
+            style={{
+              width: "75vw",
+              height: "95vh",
+              objectFit: "cover",
+              borderRadius: "20px",
+            }}
+          />
         </Box>
-      </Center>
-    </Box>
+
+        {/* Foreground Content */}
+        <Center>
+          <Box
+            p={5}
+            maxW="70vw"
+            mx="auto"
+            bg="rgba(255, 255, 255, 0.8)"
+            borderRadius="md"
+            style={{
+              borderRadius: "20px",
+              padding: "20px",
+              margin: "20px",
+            }}
+          >
+            <Heading mb={4}>Health Goals Tracker</Heading>
+
+            {showForm && (
+              <>
+                <FormControl mb={4}>
+                  <FormLabel htmlFor="query">Exercise Description</FormLabel>
+                  <Input
+                    style={{ borderRadius: "5px", padding: "5px" }}
+                    id="query"
+                    placeholder="Describe your exercise"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                  />
+                </FormControl>
+
+                <FormControl mb={4}>
+                  <FormLabel htmlFor="age">Age</FormLabel>
+                  <Input
+                    style={{ borderRadius: "5px", padding: "5px" }}
+                    id="age"
+                    type="number"
+                    placeholder="Enter your age"
+                    value={age}
+                    onChange={(e) => setAge(e.target.value)}
+                  />
+                </FormControl>
+
+                <FormControl mb={4}>
+                  <FormLabel htmlFor="gender">Gender</FormLabel>
+                  <Input
+                    style={{ borderRadius: "5px", padding: "5px" }}
+                    id="gender"
+                    placeholder="Enter your gender"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                  />
+                </FormControl>
+
+                <FormControl mb={4}>
+                  <FormLabel htmlFor="weight">Weight (kg)</FormLabel>
+                  <Input
+                    style={{ borderRadius: "5px", padding: "5px" }}
+                    id="weight"
+                    type="number"
+                    placeholder="Enter your weight"
+                    value={weight}
+                    onChange={(e) => setWeight(e.target.value)}
+                  />
+                </FormControl>
+
+                <Button
+                  style={{
+                    borderRadius: "5px",
+                    padding: "5px 20px",
+                    marginTop: "10px",
+                  }}
+                  colorScheme="teal"
+                  onClick={handleSearch}
+                >
+                  Search
+                </Button>
+              </>
+            )}
+
+            {!showForm && data && (
+              <Box style={{ padding: "0px 25px 25px 25px" }} mt={1}>
+                <Card
+                  variant="outline"
+                  mb={6}
+                  p={4}
+                  _hover={{ bg: "gray.100", boxShadow: "lg" }}
+                >
+                  <CardBody>
+                    <Heading size="md">{data.user_input}</Heading>
+                    <Text>Duration: {data.duration_min} minutes</Text>
+                    <Text>Calories Burned: {data.nf_calories} kcal</Text>
+                  </CardBody>
+                </Card>
+
+                <Flex justifyContent="space-between" flexWrap={"wrap"} mt={0}>
+                  <Box flex="1" height="35vh" mr={3}>
+                    <Heading size="sm"> (Bar Chart)</Heading>
+                    <Bar data={chartData} options={chartOptions} />
+                  </Box>
+
+                  <Box flex="1" height="30vh" ml={3}>
+                    <Heading size="sm">(Pie Chart)</Heading>
+                    <Pie data={chartData} options={chartOptions} />
+                  </Box>
+                </Flex>
+
+                <Button
+                  style={{ marginTop: "75px", marginBottom: "0px" }}
+                  colorScheme="teal"
+                  onClick={() => setShowForm(true)}
+                >
+                  Go Back
+                </Button>
+              </Box>
+            )}
+          </Box>
+        </Center>
+      </Box>
+    </>
   );
 };
 

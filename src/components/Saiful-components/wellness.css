@@ -1,18 +1,17 @@
 /* General Styles */
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
-}
-
-section {
+section .container .inside {
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0.95;
 }
+section .wellness {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.container {
+section .container .inside {
   position: relative;
   width: 1100px;
   display: flex;
@@ -23,7 +22,7 @@ section {
 }
 
 /* Card Styles */
-.container .card {
+section .container .inside .card {
   position: relative;
   max-width: 300px;
   height: 250px;
@@ -37,12 +36,12 @@ section {
   overflow: hidden; /* Ensure content doesn't overflow */
 }
 
-.container .card:hover {
+section .container .inside .card:hover {
   height: 480px;
 }
 
 /* Image Box */
-.container .card .imgbx {
+section .container .inside .card .imgbx {
   position: relative;
   width: 260px;
   height: 200px;
@@ -53,7 +52,7 @@ section {
   border-radius: 8px; /* Added border-radius for image box */
 }
 
-.container .card .imgbx img {
+section .container .inside .card .imgbx img {
   max-width: 100%;
   border-radius: 4px;
   height: 200px;
@@ -61,7 +60,7 @@ section {
 }
 
 /* Video Box */
-.container .card .videobx {
+section .container .inside .card .videobx {
   position: relative;
   width: 260px; /* Adjusted to match image box width */
   height: 200px;
@@ -72,7 +71,7 @@ section {
   border-radius: 8px; /* Added border-radius for video box */
 }
 
-.container .card .videobx video {
+section .container .inside .card .videobx video {
   max-width: 100%;
   height: 200px;
   width: 270px;
@@ -80,7 +79,7 @@ section {
 }
 
 /* Content Styles */
-.container .card .content {
+section .container .inside .card .content {
   position: relative;
   margin-top: -140px;
   padding: 10px 15px;
@@ -91,7 +90,7 @@ section {
   transition: 0.3s ease-in-out;
 }
 
-.container .card:hover .content {
+section .container .inside .card:hover .content {
   visibility: visible;
   opacity: 1;
   margin-top: -40px;
@@ -99,7 +98,7 @@ section {
 }
 
 /* Title Styles */
-.container .card .title {
+section .container .inside .card .title {
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
@@ -110,7 +109,7 @@ section {
 }
 
 /* Button Styles */
-.container .card button {
+section .container .inside .card button {
   margin-bottom: 15px;
   font-size: 17px;
   align-items: center;
@@ -147,22 +146,22 @@ section {
   z-index: 0;
 }
 
-.container .card button:hover {
+section .container .inside .card button:hover {
   background: #f6f9fe;
   color: #065be3;
 }
 
-.container .card button:active {
+section .container .inside .card button:active {
   box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
     0 8px 12px 6px rgb(60 64 67 / 15%);
   outline: none;
 }
 
-.container .card button:focus {
+section .container .inside .card button:focus {
   outline: none;
   border: 2px solid #4285f4;
 }
-.container .card button {
+section .container .inside .card button {
   border-radius: 24px;
   box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
     rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;

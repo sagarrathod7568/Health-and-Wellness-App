@@ -3,11 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/Navbar.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; 
 
 export const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [showNewPassword, setShowNewPassword] = useState(false); 
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); 
   const navigate = useNavigate();
 
   const URL =
@@ -53,38 +56,64 @@ export const ResetPassword = () => {
     }
   };
 
+  const toggleNewPasswordVisibility = () => {
+    setShowNewPassword(!showNewPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100">
-      <div className="p-4 w-50 w-md-50 w-lg-25 login">
+      <div className="p-4  login">
         <h1 className="px-4 text-center text-md-start">Reset Password</h1>
         <form className="px-4 py-3" onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="newPassword" className="form-label">
               New Password
             </label>
-            <input
-              type="password"
-              className="form-control"
-              id="newPassword"
-              placeholder="New Password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-            />
+            <div className="input-group">
+              <input
+                type={showNewPassword ? "text" : "password"}
+                className="form-control"
+                id="newPassword"
+                placeholder="New Password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+              />
+              <span
+                className="input-group-text"
+                onClick={toggleNewPasswordVisibility}
+                style={{ cursor: "pointer" }}
+              >
+                {showNewPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
           </div>
           <div className="mb-3">
             <label htmlFor="confirmPassword" className="form-label">
               Confirm Password
             </label>
-            <input
-              type="password"
-              className="form-control"
-              id="confirmPassword"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
+            <div className="input-group">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                className="form-control"
+                id="confirmPassword"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              <span
+                className="input-group-text "
+                onClick={toggleConfirmPasswordVisibility}
+                style={{ cursor: "pointer" }}
+              >
+                {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
           </div>
-          <button type="submit" className="btn btn-warning w-100">
+          <button type="submit" className="btn btn-warning w-100 mt-3">
             Reset Password
           </button>
         </form>
@@ -94,13 +123,13 @@ export const ResetPassword = () => {
           className="dropdown-item text-center text-md-start px-4"
           href="/login"
         >
-          Back to Login
+          Back to <b className="text-warning">Login</b>
         </a>
         <a
           className="dropdown-item text-center text-md-start px-4 pb-2"
           href="/signup"
         >
-          New around here? Sign up
+          New around here? <b className="text-warning">Sign up</b>
         </a>
       </div>
     </div>

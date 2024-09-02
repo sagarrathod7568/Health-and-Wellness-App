@@ -1,12 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "./physicalHealth.css";
-import physical from "../assets/physical.mp4";
-import mental from "../assets/mental.mp4";
-import emotional from "../assets/emotional.mp4";
-import spiritual from "../assets/spititual.mp4";
-import challenge from "../assets/30day.mp4";
-import social from "../assets/social.mp4";
+import "./wellness.css";
+import physical from "../Saiful-components/assets/physical.mp4";
+import mental from "../Saiful-components/assets/mental.mp4";
+import emotional from "../Saiful-components/assets/emotional.mp4";
+import spiritual from "../Saiful-components/assets/spititual.mp4";
+import challenge from "../Saiful-components/assets/30day.mp4";
+import social from "../Saiful-components/assets/social.mp4";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Wellness() {
   const videoRefs = useRef([]);
@@ -73,32 +75,32 @@ function Wellness() {
 
   return (
     <section>
-      <div className="container">
-        {cardsData.map((card, index) => (
-          <div className="card" key={card.id}>
-            <div className="videobx">
-              <video
-                ref={(el) => (videoRefs.current[index] = el)}
-                src={card.videoSrc}
-                autoPlay
-                loop
-                muted
-                className="video"
-              />
-            </div>
-            <div className="content">
-              <button onClick={() => navigate(card.navigateTo)}>
-                {card.title}
-              </button>
+      <h1 className="routs ">Exersice Tips</h1>
 
-              <p>{card.description}</p>
+      <div className="container wellness">
+        <div className="inside">
+          {cardsData.map((card, index) => (
+            <div className="card" key={card.id}>
+              <div className="videobx">
+                <video
+                  ref={(el) => (videoRefs.current[index] = el)}
+                  src={card.videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  className="video"
+                />
+              </div>
+              <div className="content">
+                <button onClick={() => navigate(card.navigateTo)}>
+                  {card.title}
+                </button>
 
-              <button onClick={() => navigate(card.navigateTo)}>
-                Learn More
-              </button>
+                <p>{card.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

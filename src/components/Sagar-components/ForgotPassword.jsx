@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./styles/Navbar.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +13,8 @@ export const ForgotPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isVerified, setIsVerified] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
 
   const URL =
@@ -27,13 +32,15 @@ export const ForgotPassword = () => {
 
       if (user) {
         setIsVerified(true);
-        alert("Email and Mobile Verified, Now you can Reset your password ");
+        toast.success(
+          "Email and Mobile Verified. Now you can reset your password."
+        );
       } else {
-        alert("Invalid email or mobile number. Please try again.");
+        toast.error("Invalid email or mobile number. Please try again.");
       }
     } catch (error) {
       console.error("Verification failed:", error);
-      alert("Failed to verify. Please try again.");
+      toast.error("Failed to verify. Please try again.");
     }
   };
 
@@ -41,7 +48,7 @@ export const ForgotPassword = () => {
     e.preventDefault();
 
     if (newPassword !== confirmPassword) {
-      alert("Passwords do not match. Please try again.");
+      toast.error("Passwords do not match. Please try again.");
       return;
     }
 
@@ -65,22 +72,23 @@ export const ForgotPassword = () => {
           updatedUser
         );
 
-        alert(
-          "Password reset successful! You can now log in with your new password."
-        );
-        navigate("/login");
+        toast.success("Password reset successful! Redirecting to login...");
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
       } else {
-        alert("Failed to reset password. Please try again.");
+        toast.error("Failed to reset password. Please try again.");
       }
     } catch (error) {
       console.error("Password reset failed:", error);
-      alert("Failed to reset password. Please try again.");
+      toast.error("Failed to reset password. Please try again.");
     }
   };
 
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100">
       <div className="p-4 forgot-password login">
+        <ToastContainer />
         <h1 className="text-center">Forgot Password</h1>
         {!isVerified ? (
           <form className="px-4 py-3" onSubmit={handleVerify}>
@@ -120,27 +128,45 @@ export const ForgotPassword = () => {
               <label htmlFor="newPassword" className="form-label">
                 New Password
               </label>
-              <input
-                type="password"
-                className="form-control"
-                id="newPassword"
-                placeholder="New Password"
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-              />
+              <div className="input-group">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className="form-control"
+                  id="newPassword"
+                  placeholder="New Password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                />
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
             </div>
             <div className="mb-3">
               <label htmlFor="confirmPassword" className="form-label">
                 Confirm Password
               </label>
-              <input
-                type="password"
-                className="form-control"
-                id="confirmPassword"
-                placeholder="Confirm Password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
+              <div className="input-group">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  className="form-control"
+                  id="confirmPassword"
+                  placeholder="Confirm Password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
+              </div>
             </div>
             <button type="submit" className="btn btn-warning w-100 mt-3">
               Reset Password

@@ -1,4 +1,4 @@
-import logo from "./assets/fevicon.png";
+import logo from "./assets/fotlogo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export const Footer = () => {

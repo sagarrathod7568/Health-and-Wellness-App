@@ -65,43 +65,62 @@ export function Articles() {
 
   return (
     <>
-      <div>
+      <div className="articles">
         <h1 className="routs mb-4">Article</h1>
-        <div data-aos="fade-up" className="box-search">
-          <span className="inpr">
-            <form onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="text"
-                placeholder="Search articles..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-
-              <button type="submit" id="sub-but">
-                Search
-              </button>
-            </form>
-          </span>
-        </div>
-
-        <Box data-aos="fade-up" className="box-arti">
-          {Object.entries(filteredData).map(([id, ele]) => (
-            <div className="Box-art" key={id}>
-              <span className="hex">
-                <p>#Health</p>
-                <p>#Fitness</p>
-              </span>
-              <h3>{ele.title}</h3>
-              <p>{ele.description}</p>
-              <div className="learn">
-                <button id="lnbutton" onClick={() => handleData(ele)}>
-                  Learn More <GoArrowRight />{" "}
-                </button>
+        <div data-aos="fade-up" className="container py-3">
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-8 col-lg-6">
+              <div className="box-search">
+                <form
+                  onSubmit={(e) => e.preventDefault()}
+                  className="input-group"
+                >
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Search articles..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                  />
+                  <button
+                    type="submit"
+                    id="sub-but"
+                    className="btn btn-warning"
+                  >
+                    Search
+                  </button>
+                </form>
               </div>
             </div>
-          ))}
-        </Box>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" className="container">
+          <div className="row">
+            {Object.entries(filteredData).map(([id, ele]) => (
+              <div className="col-12 col-md-6 mb-4" key={id}>
+                <div className="Box-art p-3 border">
+                  <span className="hex">
+                    <p>#Health</p>
+                    <p>#Fitness</p>
+                  </span>
+                  <div className="article-img">
+                    <img src={ele.img} alt="" />
+                    <h3>{ele.title}</h3>
+                  </div>
+                  <p>{ele.description}</p>
+                  <div className="learn">
+                    <button id="lnbutton" onClick={() => handleData(ele)}>
+                      Learn More <GoArrowRight />{" "}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
       <br />
       <Footer />
     </>
