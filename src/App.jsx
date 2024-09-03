@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import { Navbar } from "./components/Sagar-components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./components/Sagar-components/Home";
@@ -12,7 +11,7 @@ import { ResetPassword } from "./components/Sagar-components/ResetPassword";
 import { Articles } from "./components/Om-components/components/articles";
 import { LearnMore } from "./components/Om-components/components/learnmore";
 import { ArtContextProvider } from "./components/Om-components/context/artContextProv";
-import Chatbot from "./components/Arpan-component/chatbot";
+import Chatbot from "./components/Arpan-component/Chatbot";
 import PhysicalHealthExercises from "./components/Saiful-components/PhysicalHealthExercises";
 import NutritionFactsComponent from "./components/Saiful-components/NutritionFactsComponent";
 import DietPlanning from "./components/Saiful-components/MealLogger";
