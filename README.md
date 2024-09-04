@@ -1,7 +1,7 @@
 #Project Title
 Health and Wellness Project
 
-#Introduction
+##Introduction
 The Health and Wellness Project aims to create a platform that provides a holistic and personalized approach to health management. With the increasing importance of maintaining a healthy lifestyle, this project addresses the challenges individuals face in managing their health effectively. The platform integrates various aspects of wellness, including physical activity tracking, nutrition management, mental wellness, and personalized health advice, into a cohesive and user-friendly application.
 
 #Project Type
